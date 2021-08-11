@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>test2</title>
+  </head>
+  <body>
+    <script>
+      class User {
+        constructor(name, surname) {
+          this.name = name;
+          this.surname = surname;
+        }
+
+        get FullName() {
+          return `${this.name} ${this.surname}`;
+        }
+      }
+
+      class Student extends User {
+        constructor(name, surname, year) {
+          super(name, surname);
+          this.year = year;
+        }
+        get Course() {
+          return new Date().getFullYear() - this.year;
+        }
+      }
+
+      const student = new Student("Ivan", "Ivanov", 2018);
+      console.log(student.name); //выведет 'Иван'
+      console.log(student.surname); //выведет 'Иванов'
+      console.log(student.FullName); //выведет 'Иван Иванов'
+      console.log(student.year); //выведет 2018
+      console.log(student.Course);
+    </script>
+  </body>
+</html>
